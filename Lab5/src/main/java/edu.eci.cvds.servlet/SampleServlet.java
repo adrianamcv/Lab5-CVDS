@@ -12,12 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(
         urlPatterns = "/helloServlet"
 )
-public class SampleServlet extends HttpServlet {
+public class SampleServlet extends HttpServlet{
     static final long serialVersionUID = 35L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Servlet");
         Writer responseWriter = resp.getWriter();
         Optional<String> optName = Optional.ofNullable(req.getParameter("name"));
         String name = optName.isPresent() && !optName.get().isEmpty() ? optName.get() : "";
